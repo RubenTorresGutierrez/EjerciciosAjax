@@ -22,11 +22,10 @@ function iniciar(){
 
 function ejercicio4(){
 
-    let mes = document.getElementById('input4');
-    
-    fetch(url)
+    let mes = document.getElementById('input4').value;
+
+    fetch('json/meses.json')
         .then(respuesta => respuesta.json())
-        .then(objeto => document.getElementById('span2').innerHTML = `
-            Hay ${objeto.weather[0].description} en ${objeto.name}`);
+        .then(objeto => document.getElementById('span4').innerHTML = objeto[mes-1].nombre + ' ' + objeto[mes-1].descripcion);
 
 }
